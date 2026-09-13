@@ -5,14 +5,14 @@ import {
   Settings,
 } from "lucide-react";
 
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "../Components/Navbar";
 import Background from "../Components/Background";
 import RoleCard from "../Components/RoleCard";
 
 const Home = () => {
-  const handleRoleClick = (role) => {
-    console.log(`${role} selected`);
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -47,7 +47,7 @@ const Home = () => {
             title="STUDENT"
             description="Access Opportunities & Projects"
             gradient="from-blue-500 to-indigo-700"
-            onClick={() => handleRoleClick("Student")}
+            onClick={() => navigate("/login")}
           />
 
           {/* College */}
@@ -56,7 +56,7 @@ const Home = () => {
             title="COLLEGE"
             description="Manage Campus Collaborations"
             gradient="from-blue-500 to-cyan-600"
-            onClick={() => handleRoleClick("College")}
+            onClick={() => navigate("/college-admin-login")}
           />
 
           {/* Industry */}
@@ -65,7 +65,7 @@ const Home = () => {
             title="INDUSTRY"
             description="Connect with Emerging Talent"
             gradient="from-blue-500 to-indigo-600"
-            onClick={() => handleRoleClick("Industry")}
+            onClick={() => navigate("/industry-login")}
           />
 
           {/* Admin */}
@@ -74,7 +74,9 @@ const Home = () => {
             title="ADMIN"
             description="Oversee & Configure Platform"
             gradient="from-indigo-600 to-blue-700"
-            onClick={() => handleRoleClick("Admin")}
+            onClick={() => {
+              console.log("Admin selected");
+            }}
           />
 
         </section>
